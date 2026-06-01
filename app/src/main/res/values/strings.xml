@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">Manual Kotlin Client</string>
+    <string name="app_name">Ablecredit Kotlin</string>
+    <string name="sdk_config_dialog_title">SDK configuration</string>
+    <string name="sdk_config_dialog_subtitle">Pick an org–environment preset, edit values, then initialize the SDK.</string>
+    <string name="sdk_config_create_new">Create new configuration</string>
+    <string name="sdk_config_import">Import from file</string>
+    <string name="sdk_config_environment_hint">Environment (org–env)</string>
+    <string name="sdk_config_api_key">API key</string>
+    <string name="sdk_config_tenant_id">Tenant ID</string>
+    <string name="sdk_config_user_id_hint">User ID (fixed for sample)</string>
+    <string name="sdk_config_base_url">Base URL</string>
+    <string name="sdk_config_branch_id">Branch ID (optional)</string>
+    <string name="sdk_config_last_used">Last used credentials</string>
+    <string name="sdk_config_new_config_title">New configuration</string>
+    <string name="sdk_config_new_config_hint">Display name</string>
+    <string name="sdk_config_unsaved_title">Unsaved changes</string>
+    <string name="sdk_config_unsaved_message">Values differ from the saved preset. Save before initializing?</string>
+    <string name="sdk_config_initialize">Initialize</string>
+    <string name="sdk_config_save_and_initialize">Save &amp; initialize</string>
+    <string name="sdk_config_initialize_without_save">Initialize without saving</string>
+    <string name="login_tagline">Secure client access for the AbleCredit wrapper.</string>
+    <string name="create_loan_dialog_title">Create loan case</string>
+    <string name="create_loan_dialog_subtitle">Defaults are filled in; adjust fields and continue.</string>
+    <string name="create_loan_continue">Continue</string>
+    <string name="sdk_initializing_loader">Initializing SDK…</string>
+    <string name="btn_create_loan_case">Create loan case</string>
 </resources>

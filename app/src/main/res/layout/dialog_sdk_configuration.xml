@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_sdk_dialog_header"
+            android:orientation="vertical"
+            android:paddingStart="24dp"
+            android:paddingTop="22dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.02"
+                android:text="@string/sdk_config_dialog_title"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:alpha="0.9"
+                android:text="@string/sdk_config_dialog_subtitle"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_create_new_configuration"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="44dp"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="@string/sdk_config_create_new"
+                    android:textColor="@color/white"
+                    app:rippleColor="#40FFFFFF"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_import_configuration"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:minHeight="44dp"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="@string/sdk_config_import"
+                    android:textColor="@color/white"
+                    app:rippleColor="#40FFFFFF"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="1dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sdk_dialog_surface"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="18dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="8dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_environment_preset"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/sdk_config_environment_hint"
+                app:boxBackgroundColor="@color/sdk_dialog_field_fill"
+                app:boxStrokeColor="@color/sdk_dialog_accent"
+                app:endIconTint="@color/sdk_dialog_accent"
+                app:hintTextColor="@color/sdk_dialog_accent">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/act_environment_preset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="@color/sdk_dialog_on_surface" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_api_key"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/sdk_config_api_key"
+                app:boxBackgroundColor="@color/sdk_dialog_field_fill"
+                app:boxStrokeColor="@color/sdk_dialog_accent"
+                app:hintTextColor="@color/sdk_dialog_accent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_api_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/sdk_dialog_on_surface"
+                    android:textColorHint="@color/sdk_dialog_muted" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_tenant_id"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/sdk_config_tenant_id"
+                app:boxBackgroundColor="@color/sdk_dialog_field_fill"
+                app:boxStrokeColor="@color/sdk_dialog_accent"
+                app:hintTextColor="@color/sdk_dialog_accent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_tenant_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/sdk_dialog_on_surface"
+                    android:textColorHint="@color/sdk_dialog_muted" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_user_id"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/sdk_config_user_id_hint"
+                app:boxBackgroundColor="@color/sdk_dialog_field_fill"
+                app:boxStrokeColor="@color/sdk_dialog_accent"
+                app:hintTextColor="@color/sdk_dialog_accent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_user_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/sdk_dialog_muted" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_base_url"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/sdk_config_base_url"
+                app:boxBackgroundColor="@color/sdk_dialog_field_fill"
+                app:boxStrokeColor="@color/sdk_dialog_accent"
+                app:hintTextColor="@color/sdk_dialog_accent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_base_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textUri"
+                    android:textColor="@color/sdk_dialog_on_surface"
+                    android:textColorHint="@color/sdk_dialog_muted" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_branch_id"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:hint="@string/sdk_config_branch_id"
+                app:boxBackgroundColor="@color/sdk_dialog_field_fill"
+                app:boxStrokeColor="@color/sdk_dialog_accent"
+                app:hintTextColor="@color/sdk_dialog_accent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_branch_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/sdk_dialog_on_surface"
+                    android:textColorHint="@color/sdk_dialog_muted" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

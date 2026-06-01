@@ -2,4 +2,34 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_800">#424242</color>
+
+    <color name="wrapper_screen_bg">#FFFFFF</color>
+    <color name="wrapper_surface">#FFFFFF</color>
+    <color name="wrapper_soft_surface">#F5F5F5</color>
+    <color name="wrapper_border">#E0E0E0</color>
+    <color name="wrapper_text_primary">#000000</color>
+    <color name="wrapper_text_secondary">#757575</color>
+    <color name="wrapper_accent">#000000</color>
+    <color name="wrapper_method_bg">#F5F5F5</color>
+    <color name="wrapper_method_text">#424242</color>
+
+    <color name="sdk_dialog_accent">#000000</color>
+    <color name="sdk_dialog_accent_dark">#333333</color>
+    <color name="sdk_dialog_surface">#FFFFFF</color>
+    <color name="sdk_dialog_on_surface">#000000</color>
+    <color name="sdk_dialog_muted">#757575</color>
+    <color name="sdk_dialog_field_fill">#F5F5F5</color>
+    <color name="sdk_dialog_field_fill_disabled">#EEEEEE</color>
+    <color name="sdk_dialog_divider">#E0E0E0</color>
+    <color name="sdk_dialog_button_bar_bg">#FAFAFA</color>
+    <color name="sdk_dialog_button_bar_divider">#E0E0E0</color>
+    <color name="sdk_chip_unselected">#E0E0E0</color>
+    <color name="sdk_chip_selected">#000000</color>
+    <color name="sdk_chip_text">#000000</color>
+    <color name="chip_sdk_config_background">#E0E0E0</color>
 </resources>

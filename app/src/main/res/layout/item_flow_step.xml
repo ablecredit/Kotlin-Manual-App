@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="4dp">
+    <ImageView
+        android:id="@+id/iv_drag_handle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_drag_handle" />
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/cb_step"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/black"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+</LinearLayout>

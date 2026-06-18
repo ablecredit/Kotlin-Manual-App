@@ -5,6 +5,10 @@
         android:icon="@drawable/ic_nav_home"
         android:title="Home" />
     <item
+        android:id="@+id/nav_flow"
+        android:icon="@drawable/ic_nav_flow"
+        android:title="Flow" />
+    <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_nav_profile"
         android:title="Profile" />

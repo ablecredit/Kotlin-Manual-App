@@ -37,6 +37,15 @@
                 android:textStyle="bold" />
 
             <ImageButton
+                android:id="@+id/btn_copy_loan_reference"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Copy loan reference"
+                android:padding="4dp"
+                android:src="@drawable/ic_content_copy" />
+
+            <ImageButton
                 android:id="@+id/btn_more_actions"
                 android:layout_width="32dp"
                 android:layout_height="32dp"

@@ -24,4 +24,5 @@
     <string name="create_loan_continue">Continue</string>
     <string name="sdk_initializing_loader">Initializing SDK…</string>
     <string name="btn_create_loan_case">Create loan case</string>
+    <string name="creating_loan_loader">Creating loan case…</string>
 </resources>

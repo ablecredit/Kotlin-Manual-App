@@ -31,15 +31,18 @@ class AbleCreditRepository(private val application: Application) {
         AbleCredit.createNewLoanCase(application, payload, onResult)
     }
 
-    fun fetchLoanDetails(
+    fun getLoanById(
+        applicationId: String,
+        onResult: (AbleCreditResult<AbleCreditLoanResponse>) -> Unit
+    ) {
+        AbleCredit.getLoanById(application, applicationId, onResult)
+    }
+
+    fun getLoanByReference(
         loanReference: String,
         onResult: (AbleCreditResult<AbleCreditLoanResponse>) -> Unit
     ) {
-        AbleCredit.fetchLoanDetails(application, loanReference, onResult)
-    }
-
-    fun viewLoanApplications() {
-        AbleCredit.viewLoanApplications(application)
+        AbleCredit.getLoanByReference(application, loanReference, onResult)
     }
 
     fun recordAudio(loanApplicationId: String) {
@@ -77,5 +80,9 @@ class AbleCreditRepository(private val application: Application) {
         onResult: (AbleCreditResult<Unit>) -> Unit
     ) {
         AbleCredit.requestReportGeneration(application, loanApplicationId, onResult)
+    }
+
+    fun startLoanFlow(context: android.content.Context, config: com.ablecredit.sdk.model.AbleCreditFlowConfig) {
+        AbleCredit.startLoanFlow(context, config)
     }
 }

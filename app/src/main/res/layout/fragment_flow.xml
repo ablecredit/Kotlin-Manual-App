@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_start_loan_flow"
+        style="@style/Widget.ManualKotlinClient.FlatButtonFilled"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Start loan flow"
+        android:textSize="15sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:text="AbleCredit.startLoanFlow(...)"
+        android:textColor="@color/gray_600"
+        android:textSize="11sp" />
+</LinearLayout>

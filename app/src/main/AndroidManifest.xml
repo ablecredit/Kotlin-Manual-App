@@ -18,6 +18,21 @@
             android:parentActivityName=".ui.main.MainActivity" />
 
         <activity
+            android:name=".ui.flowconfig.FlowConfigActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.dashboard.DashboardActivity" />
+
+        <activity
+            android:name=".ui.testflows.TestFlowsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.dashboard.DashboardActivity" />
+
+        <activity
+            android:name=".ui.testflows.MockClientScreenActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.testflows.TestFlowsActivity" />
+
+        <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -274,7 +274,9 @@ class TestFlowsActivity : AppCompatActivity() {
                 if (i < nodes.size - 1) {
                     val nextNode = nodes[i + 1]
                     chainedDockedButton = if (node.transition == TransitionType.DIRECT) {
-                        AbleCreditDockedButton("${nextNode.step.label} →", true) { ctx ->
+                        val isGenReport = nextNode.step == FlowStep.GENERATE_REPORT
+                        val label = if (isGenReport) nextNode.step.label else "${nextNode.step.label} →"
+                        AbleCreditDockedButton(label, true, isGenerateReport = isGenReport) { ctx ->
                             launchStep(ctx, nextNode, ref, nextDockedButton); kotlin.Unit
                         }
                     } else {

@@ -59,7 +59,7 @@ kotlin {
 }
 
 dependencies {
-    implementation("com.ablecredit:sdk:1.0.8")
+    implementation("com.ablecredit:sdk:1.1.2")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
     implementation(libs.androidx.appcompat)

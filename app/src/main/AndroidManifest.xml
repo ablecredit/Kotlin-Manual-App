@@ -33,6 +33,11 @@
             android:parentActivityName=".ui.testflows.TestFlowsActivity" />
 
         <activity
+            android:name=".ui.scenarios.ClientHandoffActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.dashboard.DashboardActivity" />
+
+        <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>

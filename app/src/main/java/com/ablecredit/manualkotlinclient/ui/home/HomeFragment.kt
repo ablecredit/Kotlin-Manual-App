@@ -275,6 +275,7 @@ class HomeFragment : Fragment() {
         val subTitle = cardView.findViewById<TextView>(R.id.tv_loan_meta)
         val actionChipGroup = cardView.findViewById<ChipGroup>(R.id.chip_group_card_actions)
         val copyButton = cardView.findViewById<ImageButton>(R.id.btn_copy_loan_reference)
+        val copyAppIdButton = cardView.findViewById<ImageButton>(R.id.btn_copy_application_id)
         val moreButton = cardView.findViewById<ImageButton>(R.id.btn_more_actions)
         val reportProgress = cardView.findViewById<ProgressBar>(R.id.progress_report)
 
@@ -286,6 +287,9 @@ class HomeFragment : Fragment() {
 
         val createdTime = DateFormat.getDateTimeInstance().format(loanCaseItem.createdAt)
         subTitle.text = "${loanCaseItem.applicationId}  ·  $createdTime"
+
+        copyAppIdButton.visibility = if (loanCaseItem.applicationId.isEmpty()) View.GONE else View.VISIBLE
+        copyAppIdButton.setOnClickListener { copyApplicationId(loanCaseItem.applicationId) }
 
         actionChipGroup.removeAllViews()
         maybeAddActionChip(actionChipGroup, loanCaseItem, ACTION_AUDIO, "Audio", reportProgress)
@@ -305,6 +309,16 @@ class HomeFragment : Fragment() {
         Log.d(TAG, "Loan reference copied to clipboard | loanReference='$loanReference'")
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             Toast.makeText(requireContext(), "Loan reference copied", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun copyApplicationId(applicationId: String) {
+        if (applicationId.isEmpty()) return
+        val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        clipboard.setPrimaryClip(ClipData.newPlainText("Application ID", applicationId))
+        Log.d(TAG, "Application ID copied to clipboard | applicationId='$applicationId'")
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            Toast.makeText(requireContext(), "Application ID copied", Toast.LENGTH_SHORT).show()
         }
     }
 

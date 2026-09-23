@@ -7,6 +7,7 @@ import com.ablecredit.manualkotlinclient.R
 import com.ablecredit.manualkotlinclient.ui.flow.FlowFragment
 import com.ablecredit.manualkotlinclient.ui.home.HomeFragment
 import com.ablecredit.manualkotlinclient.ui.profile.ProfileFragment
+import com.ablecredit.manualkotlinclient.ui.scenarios.ScenariosFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashboardActivity : AppCompatActivity() {
@@ -14,11 +15,13 @@ class DashboardActivity : AppCompatActivity() {
     companion object {
         private const val TAG_HOME = "tag_home"
         private const val TAG_FLOW = "tag_flow"
+        private const val TAG_SCENARIOS = "tag_scenarios"
         private const val TAG_PROFILE = "tag_profile"
     }
 
     private lateinit var homeFragment: HomeFragment
     private lateinit var flowFragment: FlowFragment
+    private lateinit var scenariosFragment: ScenariosFragment
     private lateinit var profileFragment: ProfileFragment
     private var activeFragment: Fragment? = null
 
@@ -31,9 +34,11 @@ class DashboardActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             homeFragment = HomeFragment()
             flowFragment = FlowFragment()
+            scenariosFragment = ScenariosFragment()
             profileFragment = ProfileFragment()
             supportFragmentManager.beginTransaction()
                 .add(R.id.fragment_container, profileFragment, TAG_PROFILE).hide(profileFragment)
+                .add(R.id.fragment_container, scenariosFragment, TAG_SCENARIOS).hide(scenariosFragment)
                 .add(R.id.fragment_container, flowFragment, TAG_FLOW).hide(flowFragment)
                 .add(R.id.fragment_container, homeFragment, TAG_HOME)
                 .commit()
@@ -42,6 +47,7 @@ class DashboardActivity : AppCompatActivity() {
             val fm = supportFragmentManager
             homeFragment = (fm.findFragmentByTag(TAG_HOME) as? HomeFragment) ?: HomeFragment()
             flowFragment = (fm.findFragmentByTag(TAG_FLOW) as? FlowFragment) ?: FlowFragment()
+            scenariosFragment = (fm.findFragmentByTag(TAG_SCENARIOS) as? ScenariosFragment) ?: ScenariosFragment()
             profileFragment = (fm.findFragmentByTag(TAG_PROFILE) as? ProfileFragment) ?: ProfileFragment()
             activeFragment = fm.fragments.firstOrNull { !it.isHidden } ?: homeFragment
         }
@@ -50,6 +56,7 @@ class DashboardActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> { switchTo(homeFragment); true }
                 R.id.nav_flow -> { switchTo(flowFragment); true }
+                R.id.nav_scenarios -> { switchTo(scenariosFragment); true }
                 R.id.nav_profile -> { switchTo(profileFragment); true }
                 else -> false
             }

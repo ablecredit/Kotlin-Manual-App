@@ -171,8 +171,8 @@ object FlowConfigDialog {
         } else {
             steps.filter { it != AbleCreditFlowStep.CREATE_LOAN_CASE }.toMutableList()
         }
-        val withoutReport = base.filter { it != AbleCreditFlowStep.GENERATE_REPORT }.toMutableList()
-        if (base.contains(AbleCreditFlowStep.GENERATE_REPORT)) withoutReport.add(AbleCreditFlowStep.GENERATE_REPORT)
+        val withoutReport = base.filter { it != AbleCreditFlowStep.SHOW_SUMMARY }.toMutableList()
+        if (base.contains(AbleCreditFlowStep.SHOW_SUMMARY)) withoutReport.add(AbleCreditFlowStep.SHOW_SUMMARY)
         return withoutReport
     }
 
@@ -201,6 +201,18 @@ object FlowConfigDialog {
             }
             override fun onStepCompleted(step: AbleCreditFlowStep) {
                 Log.d(TAG, "Step completed | step=$step")
+            }
+            override fun onFlowClosed(step: AbleCreditFlowStep?, applicationId: String?) {
+                Log.d(TAG, "Flow closed by user | step=$step, applicationId=$applicationId")
+            }
+            override fun onStepButtonClicked(step: AbleCreditFlowStep, applicationId: String): Boolean {
+                return false
+            }
+            override fun onReportGenerationTriggered(step: AbleCreditFlowStep, applicationId: String) {
+                Log.d(TAG, "Report generation triggered | step=$step, applicationId=$applicationId")
+            }
+            override fun onReportGenerationResult(step: AbleCreditFlowStep, applicationId: String, success: Boolean, message: String?) {
+                Log.d(TAG, "Report generation result | step=$step, success=$success, message=$message")
             }
         }
     }

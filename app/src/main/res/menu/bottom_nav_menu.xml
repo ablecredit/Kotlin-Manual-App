@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_nav_flow"
         android:title="Flow" />
     <item
+        android:id="@+id/nav_scenarios"
+        android:icon="@drawable/ic_nav_scenarios"
+        android:title="Scenarios" />
+    <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_nav_profile"
         android:title="Profile" />

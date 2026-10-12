@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.ablecredit.manualkotlinclient.R
 import com.ablecredit.manualkotlinclient.data.SampleLoanCaseData
 import com.ablecredit.manualkotlinclient.data.model.LoanCaseItem
+import com.ablecredit.manualkotlinclient.data.model.LoanCreationSource
 import com.ablecredit.manualkotlinclient.data.repository.DropdownItemsRepository
 import com.ablecredit.manualkotlinclient.data.repository.FlowStepsRepository
 import com.ablecredit.manualkotlinclient.data.repository.LoanCaseRepository
@@ -183,7 +184,7 @@ object FlowConfigDialog {
             override fun onLoanCreated(applicationId: String, response: AbleCreditLoanResponse) {
                 val ref = response.data?.application?.loan_reference?.takeIf { it.isNotEmpty() } ?: loanReference
                 Log.d(TAG, "Loan created SUCCESS | applicationId=$applicationId, loanReference=$ref")
-                loanCaseRepository.saveOrUpdate(LoanCaseItem(applicationId, ref, System.currentTimeMillis()))
+                loanCaseRepository.saveOrUpdate(LoanCaseItem(applicationId, ref, System.currentTimeMillis(), LoanCreationSource.ORCHESTRATOR))
                 if (wrapperSettings.isWrapperToastsEnabled()) flowSnackbar(activity, "Loan case created")
             }
             override fun onFileStatusChanged(step: AbleCreditFlowStep, uniqueId: String, status: AbleCreditFileStatus, message: String?) {

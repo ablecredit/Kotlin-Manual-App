@@ -37,6 +37,12 @@
             android:exported="false"
             android:parentActivityName=".ui.dashboard.DashboardActivity" />
 
+        <!-- Host-owned screens shown inside an SDK flow's HOST step (Video, cl1, cl2). -->
+        <activity
+            android:name=".ui.scenarios.ClientChainActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">

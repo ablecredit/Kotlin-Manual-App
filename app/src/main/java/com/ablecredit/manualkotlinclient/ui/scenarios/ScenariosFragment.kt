@@ -51,6 +51,12 @@ class ScenariosFragment : Fragment() {
         view.findViewById<View>(R.id.row_client_handoff).setOnClickListener {
             runClientHandoffFlow()
         }
+        view.findViewById<View>(R.id.row_host_step_single).setOnClickListener {
+            runHostStepFlow(chain = false, minAudioCount = 0)
+        }
+        view.findViewById<View>(R.id.row_host_step_chain).setOnClickListener {
+            runHostStepFlow(chain = true, minAudioCount = 2)
+        }
     }
 
     /**
@@ -300,6 +306,23 @@ class ScenariosFragment : Fragment() {
             message: String?
         ) {
             Log.d(TAG, "Report generation result | step=$step, success=$success, message=$message")
+        }
+    }
+
+    /**
+     * Scenario: ONE SDK flow with the client's own screen(s) in the middle (see [HostStepFlow]).
+     * [chain] makes the host step Video → cl1 → cl2 (kept on the stack via
+     * proceed(keepHostScreens = true)); [minAudioCount] gates the Audio steps. The created loan is
+     * saved to Home tagged Orchestrator with its flow, so tapping it there resumes this flow.
+     */
+    private fun runHostStepFlow(chain: Boolean, minAudioCount: Int) {
+        CreateLoanDialog.show(requireActivity() as AppCompatActivity) { loanRef, userName, branch, product, businessModel ->
+            val payload = SampleLoanCaseData.buildCreateLoanPayload(loanRef, userName, branch, product, businessModel)
+            HostStepFlow.start(
+                requireContext(),
+                HostStepFlow.snapshot(chain, minAudioCount),
+                newLoanPayload = payload
+            )
         }
     }
 

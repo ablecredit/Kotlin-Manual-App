@@ -23,6 +23,8 @@ import androidx.fragment.app.Fragment
 import com.ablecredit.manualkotlinclient.R
 import com.ablecredit.manualkotlinclient.data.SampleLoanCaseData
 import com.ablecredit.manualkotlinclient.data.model.LoanCaseItem
+import com.ablecredit.manualkotlinclient.data.model.LoanCreationSource
+import com.ablecredit.manualkotlinclient.ui.scenarios.HostStepFlow
 import com.ablecredit.manualkotlinclient.data.repository.AbleCreditRepository
 import com.ablecredit.manualkotlinclient.data.repository.LoanCaseRepository
 import com.ablecredit.manualkotlinclient.data.repository.SdkConfigRepository
@@ -279,6 +281,9 @@ class HomeFragment : Fragment() {
         val moreButton = cardView.findViewById<ImageButton>(R.id.btn_more_actions)
         val reportProgress = cardView.findViewById<ProgressBar>(R.id.progress_report)
 
+        val sourceBadge = cardView.findViewById<TextView>(R.id.tv_loan_source)
+        sourceBadge.text = if (loanCaseItem.source == LoanCreationSource.ORCHESTRATOR) "Orchestrator" else "Direct"
+
         title.text = if (loanCaseItem.loanReference.isEmpty()) "Loan Reference: not available"
                      else loanCaseItem.loanReference
 
@@ -300,6 +305,13 @@ class HomeFragment : Fragment() {
         addCompleteFlowChip(actionChipGroup, loanCaseItem)
 
         moreButton.setOnClickListener { showActionMenu(it, loanCaseItem, reportProgress) }
+
+        // Loans created from the Scenarios tab resume the exact flow that created them.
+        loanCaseItem.flow?.let { snapshot ->
+            cardView.setOnClickListener {
+                HostStepFlow.start(requireContext(), snapshot, existingLoanId = loanCaseItem.applicationId)
+            }
+        }
     }
 
     private fun copyLoanReference(loanReference: String) {

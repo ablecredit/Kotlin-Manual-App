@@ -86,6 +86,7 @@ class FlowStepAdapter(
             AbleCreditFlowStep.CAPTURE_FAMILY_PHOTOS -> "Capture family photos"
             AbleCreditFlowStep.CAPTURE_COLLATERAL_PHOTOS -> "Capture collateral photos"
             AbleCreditFlowStep.SHOW_SUMMARY -> "Show summary"
+            AbleCreditFlowStep.HOST -> "Host (client) screen"
             else -> step.name
         }
 

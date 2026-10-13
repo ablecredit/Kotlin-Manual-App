@@ -57,6 +57,9 @@ class ScenariosFragment : Fragment() {
         view.findViewById<View>(R.id.row_host_step_chain).setOnClickListener {
             runHostStepFlow(chain = true, minAudioCount = 2)
         }
+        view.findViewById<View>(R.id.row_host_demo).setOnClickListener {
+            startActivity(android.content.Intent(requireContext(), com.ablecredit.manualkotlinclient.ui.hostdemo.HostDemoActivity::class.java))
+        }
     }
 
     /**

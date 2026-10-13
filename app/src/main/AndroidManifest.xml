@@ -43,6 +43,16 @@
             android:exported="false"
             android:theme="@android:style/Theme.Material.Light.NoActionBar" />
 
+        <!-- Plain reference integration of the HOST step (see ui/hostdemo). -->
+        <activity
+            android:name=".ui.hostdemo.HostDemoActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.dashboard.DashboardActivity" />
+
+        <activity
+            android:name=".ui.hostdemo.HostScreenActivity"
+            android:exported="false" />
+
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
